@@ -267,6 +267,15 @@ function animate() {
   }
 }
 
+  //Checken ob die Spieler auf dem Boden sind
+function isOnGround(sprite) {
+  // Die Y-Position des Sprites und die Höhe des Canvas
+  const bottomY = sprite.position.y + sprite.height;
+
+  // Überprüfen, ob das untere Ende des Sprites den Boden erreicht hat (-110 weil man das untere Ende des Bodens noch bedenken muss)
+  return bottomY >= canvas.height - 100;
+}
+
 animate()
 
 window.addEventListener('keydown', (event) => {
@@ -281,8 +290,9 @@ window.addEventListener('keydown', (event) => {
         player.lastKey = 'a'
         break
       case 'w':
-        player.velocity.y = -20
-        break
+        while(isOnGround(player)){
+          player.velocity.y = -20
+          break } break
       case 's':
         player.attack()
         break
@@ -300,8 +310,9 @@ window.addEventListener('keydown', (event) => {
         enemy.lastKey = 'ArrowLeft'
         break
       case 'ArrowUp':
-        enemy.velocity.y = -20
-        break
+        while(isOnGround(enemy)){
+          enemy.velocity.y = -20
+          break } break
       case 'ArrowDown':
         enemy.attack()
 
