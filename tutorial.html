@@ -32,14 +32,21 @@
             align-items: center;
         }
 
-        .image-container img {
-            max-width: auto;
+        .images {
+            display: flex;
+            flex-direction: row; /* Bilder nebeneinander */
+            align-items: center;
+            justify-content: center;
+        }
+
+        .images img {
+            max-width: 40%;
             height: auto;
-            margin: 10px; /* Space between the images */
+            margin: 10px; /* Abstand zwischen den Bildern */
         }
 
         .game-start-button {
-            margin-top: 20px; /* Space between the images and the button */
+            margin-top: 20px; /* Abstand zwischen den Bildern und dem Button */
             width: 140px;
             height: 40px;
             background-color: red;
@@ -56,8 +63,10 @@
 </head>
 <body>
     <div class="image-container">
-        <img src="/img/tutorial/Wasd_Tasten.png" alt="Roter Samurai">
-        <img src="/img/tutorial/Pfeil_Tasten.png" alt="Blauer Samurai">
+        <div class="images">
+            <img src="/img/tutorial/Wasd_Tasten.png" alt="Roter Samurai">
+            <img src="/img/tutorial/Pfeil_Tasten.png" alt="Blauer Samurai">
+        </div>
         <a href="Spiel.html" class="game-start-button">Start</a>
     </div>
 </body>
