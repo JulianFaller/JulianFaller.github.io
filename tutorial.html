@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutorial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Press Start 2P', cursive;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: black;
+            color: white;
+            flex-direction: column;
+        }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-container img {
+            max-width: auto;
+            height: auto;
+            margin: 10px; /* Space between the images */
+        }
+
+        .game-start-button {
+            margin-top: 20px; /* Space between the images and the button */
+            width: 140px;
+            height: 40px;
+            background-color: red;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            border-radius: 10%;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="/img/tutorial/Wasd_Tasten.png" alt="Roter Samurai">
+        <img src="/img/tutorial/Pfeil_Tasten.png" alt="Blauer Samurai">
+        <a href="Spiel.html" class="game-start-button">Start</a>
+    </div>
+</body>
+</html>
