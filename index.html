@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Julian Faller</title>
+    <link rel="stylesheet" href="css/SidebarStyle.css">
     <style>
         body {
             display: flex;
@@ -37,11 +38,23 @@
     <!-- Überschrift -->
     <h1>Julian Faller</h1>
 
-    <!-- Inhalt -->
     <div class="content">
-        <p>Startseite</p>
-        <a href="tutorial.html">Fighting Game</a>
+        <!--Inhalt-->
     </div>
+
+        <!--Sidebar Button-->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="index.html">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+        <a href="html/tutorial.html">Fighting Game</a>
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Menü</button>
+    </div>
+    <script src="js/SidebarScript.js"></script>
 
 </body>
 </html>
