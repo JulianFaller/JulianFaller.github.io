@@ -30,6 +30,20 @@
         a {
             text-decoration: none; /* Optional: Entfernt die Unterstreichung des Links */
         }
+
+        .datetime {
+            font-size: 1.5em;
+            position: absolute;
+            margin: 10px;
+        }
+        #date {
+            top: 20px;
+            right: 20px;
+        }
+        #time {
+            top: 20px;
+            right: 200px;
+        }
     </style>
 </head>
 <body>
@@ -39,7 +53,8 @@
     <div class="content">
         <!--Inhalt-->
     </div>
-
+    <div id="date" class="datetime"></div>
+    <div id="time" class="datetime"></div>
         <!--Sidebar Button-->
     <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -51,6 +66,7 @@
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
     <script src="js/SidebarScript.js"></script>
+    <script src="js/TimeDateScript.js"></script>
 
 </body>
 </html>
