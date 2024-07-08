@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="css/SidebarStyle.css">
     <link rel="stylesheet" href="css/InputField.css">
     <link rel="stylesheet" href="css/datetime.css">
+    <link rel="stylesheet" href="css/LoadingScreen.css">
+
     <style>
         body {
             display: flex;
@@ -33,33 +35,51 @@
             text-decoration: none;
         }
 
+        
     </style>
 </head>
 <body>
-
     <h1>Julian Faller</h1>
     <div class="content">
         <!--...-->
     </div>
 
-        <!--Date / Time-->
+    <!--Date / Time-->
     <div id="date" class="datetime"></div>
     <div id="time" class="datetime"></div>
 
-        <!--Sidebar Button-->
+    <!--Sidebar Button-->
     <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="index.html">Home</a>
         <a href="html/AboutMe.html">About</a>
         <a href="html/Contact.html">Contact</a>
-        <a href="html/tutorial.html">Fighting Game</a>
+        <a href="javascript:void(0)" id="fightingGameLink">Fighting Game</a>
     </div>
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
-    
+
+    <!-- Black Screen Animation -->
+    <div class="container-loadingscreen" id="animationContainer">
+        <div class="animated-image-loadingscreen" id="animatedImage">
+            <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Loading</div>
+        </div>
+    </div>
+
     <script src="js/SidebarScript.js"></script>
     <script src="js/TimeDateScript.js"></script>
+    <script>
+        document.getElementById('fightingGameLink').addEventListener('click', function() {
+            const container = document.getElementById('animationContainer');
+            const image = document.getElementById('animatedImage');
+            container.style.display = 'block';
+            image.classList.add('moveRight');
 
+            image.addEventListener('animationend', function() {
+                window.location.href = 'html/tutorial.html';
+            },1000);
+        });
+    </script>
 </body>
 </html>
