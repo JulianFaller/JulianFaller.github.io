@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AboutMe</title>
     <link rel="stylesheet" href="../css/SidebarStyle.css">
+    <link rel="stylesheet" href="../css/datetime.css">
     <style>
         body {
             display: flex;
@@ -30,16 +31,21 @@
         a {
             text-decoration: none; /* Optional: Entfernt die Unterstreichung des Links */
         }
+
+
     </style>
 </head>
 <body>
 
-    <!-- Überschrift -->
     <h1>About Me</h1>
     <div class="content">
-        <!--Inhalt-->
+        <!--...-->
     </div>
 
+        <!--Date / Time-->
+    <div id="date" class="datetime"></div>
+    <div id="time" class="datetime"></div>
+    
         <!--Sidebar Button-->
     <div id="sidebar" class="sidebar">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -51,7 +57,9 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
+
     <script src="../js/SidebarScript.js"></script>
+    <script src="../js/TimeDateScript.js"></script>
 
 </body>
 </html>

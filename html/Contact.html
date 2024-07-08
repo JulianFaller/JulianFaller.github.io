@@ -6,40 +6,45 @@
     <title>Contact</title>
     <link rel="stylesheet" href="../css/SidebarStyle.css">
     <link rel="stylesheet" href="../css/InputField.css">
+    <link rel="stylesheet" href="../css/datetime.css">
+
     <style>
         body {
             display: flex;
             flex-direction: column;
             margin: 20px;
             padding: 0;
-            height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
+            height: 100vh;
             box-sizing: border-box;
         }
 
         h1 {
             text-align: center;
-            margin-top: 20px; /* Abstand zum oberen Rand */
+            margin-top: 20px;
         }
 
         .content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px; /* Abstand zur Überschrift */
+            margin-top: 20px;
         }
 
         a {
-            text-decoration: none; /* Optional: Entfernt die Unterstreichung des Links */
+            text-decoration: none;
         }
     </style>
 </head>
 <body>
 
-    <!-- Überschrift -->
     <h1>Contact</h1>
     <div class="content">
-        <!--Inhalt-->
+        <!--...-->
     </div>
+
+        <!--Date / Time-->
+    <div id="date" class="datetime"></div>
+    <div id="time" class="datetime"></div>
 
         <!--Sidebar Button-->
     <div id="sidebar" class="sidebar">
@@ -52,31 +57,36 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
-    <script src="../js/SidebarScript.js"></script>
 
-    <form action="https://formspree.io/f/mwpekjqr" method="POST">
-        <div class="input-group">
-            <input type="text" id="firstName" name="firstName" class="input">
-            <label for="firstName" class="label">First Name</label>
-        </div>
-    
-        <div class="input-group">
-            <input type="text" id="lastName" name="lastName" class="input">
-            <label for="lastName" class="label">Last Name</label>
-        </div>
-    
-        <div class="input-group">
-            <input type="email" id="email" name="email" class="input">
-            <label for="email" class="label">E-Mail</label>
-        </div>
-    
-        <div class="input-group">
-            <textarea id="message" name="message" class="input-bigger"></textarea>
-            <label for="message" class="label">Message</label>
-        </div>
-    
-        <button type="submit" class="input">Send</button>
-    </form>
+        <!--Input Fields-->
+    <div class="form-container">
+            <form action="https://formspree.io/f/mwpekjqr" method="POST">
+                <div class="input-group">
+                    <input type="text" id="firstName" name="firstName" class="input">
+                    <label for="firstName" class="label">First Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="lastName" name="lastName" class="input">
+                    <label for="lastName" class="label">Last Name</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="email" name="email" class="input">
+                    <label for="email" class="label">E-Mail</label>
+                </div>
+
+                <div class="input-group">
+                    <textarea id="message" name="message" class="input-bigger"></textarea>
+                    <label for="message" class="label">Message</label>
+                </div>
+
+                <button type="submit" class="input">Send</button>
+            </form>
+
+            <script src="../js/SidebarScript.js"></script>
+            <script src="../js/TimeDateScript.js"></script>
+    </div>
     
     
 

@@ -1,0 +1,13 @@
+.datetime {
+    font-size: 1.5em;
+    position: absolute;
+    margin: 10px;
+}
+#date {
+    top: 20px;
+    right: 20px;
+}
+#time {
+    top: 20px;
+    right: 200px;
+}
