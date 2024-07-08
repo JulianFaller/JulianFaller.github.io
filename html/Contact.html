@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="../css/SidebarStyle.css">
+    <link rel="stylesheet" href="../css/InputField.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+            padding: 0;
+            height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px; /* Abstand zum oberen Rand */
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px; /* Abstand zur Überschrift */
+        }
+
+        a {
+            text-decoration: none; /* Optional: Entfernt die Unterstreichung des Links */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Überschrift -->
+    <h1>Contact</h1>
+    <div class="content">
+        <!--Inhalt-->
+    </div>
+
+        <!--Sidebar Button-->
+    <div id="sidebar" class="sidebar">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+        <a href="../index.html">Home</a>
+        <a href="../html/AboutMe.html">About</a>
+        <a href="../html/Contact.html">Contact</a>
+        <a href="../html/tutorial.html">Fighting Game</a>
+    </div>
+    <div id="main">
+        <button class="openbtn" onclick="openNav()">☰ Menu</button>
+    </div>
+    <script src="../js/SidebarScript.js"></script>
+
+    <form action="https://formspree.io/f/mwpekjqr" method="POST">
+        <div class="input-group">
+            <input type="text" id="firstName" name="firstName" class="input">
+            <label for="firstName" class="label">First Name</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="text" id="lastName" name="lastName" class="input">
+            <label for="lastName" class="label">Last Name</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="email" id="email" name="email" class="input">
+            <label for="email" class="label">E-Mail</label>
+        </div>
+    
+        <div class="input-group">
+            <textarea id="message" name="message" class="input-bigger"></textarea>
+            <label for="message" class="label">Message</label>
+        </div>
+    
+        <button type="submit" class="input">Send</button>
+    </form>
+    
+    
+
+</body>
+</html>
+
