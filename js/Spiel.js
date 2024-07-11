@@ -167,7 +167,6 @@ const keys = {
 decreaseTimer()
 
 function animate() {
-  window.requestAnimationFrame(animate)
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   background.update()
@@ -267,14 +266,15 @@ function animate() {
   }
 }
 
-  //Checken ob die Spieler auf dem Boden sind
+// Checken ob die Spieler auf dem Boden sind
 function isOnGround(sprite) {
   const bottomY = sprite.position.y + sprite.height;
   // Überprüfen, ob das untere Ende des Sprites den Boden erreicht hat (-110 weil man das untere Ende des Bodens noch bedenken muss)
   return bottomY >= canvas.height - 100;
 }
 
-animate()
+// Set the interval to 60 FPS (1000ms / 60)
+setInterval(animate, 1000 / 60);
 
 window.addEventListener('keydown', (event) => {
   if (!player.dead) {
@@ -313,7 +313,6 @@ window.addEventListener('keydown', (event) => {
           break } break
       case 'ArrowDown':
         enemy.attack()
-
         break
     }
   }
