@@ -2,6 +2,11 @@
     font-size: 1.5em;
     position: absolute;
     margin: 10px;
+    background-color: white;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9);
 }
 #date {
     top: 20px;

@@ -46,6 +46,7 @@ body {
     position:fixed;
     top: 20px;
     left: 20px;
+    border-radius: 10px;
 }
 
 .openbtn:hover {

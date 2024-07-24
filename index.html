@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="css/datetime.css">
     <link rel="stylesheet" href="css/SidebarStyle.css">
     <link rel="stylesheet" href="css/InputField.css">
-    <link rel="stylesheet" href="css/datetime.css">
     <link rel="stylesheet" href="css/LoadingScreen.css">
 
     <style>
@@ -17,11 +17,18 @@
             padding: 0;
             height: 100vh;
             box-sizing: border-box;
+            background-image: url(/img/main-wallpaper.jpg);
+            background-size: cover;
         }
 
         h1 {
             text-align: center;
-            margin-top: 20px; 
+            margin: 20px auto;
+            background-color: white;
+            border-radius: 20px;
+            display: inline-block;
+            padding: 10px 20px;
+            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9);
         }
 
         .content {
@@ -65,7 +72,6 @@
     <!-- Black Screen Animation -->
     <div class="container-loadingscreen" id="animationContainer">
         <div class="animated-image-loadingscreen" id="animatedImage">
-            <div>. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . Loading</div>
         </div>
     </div>
 
