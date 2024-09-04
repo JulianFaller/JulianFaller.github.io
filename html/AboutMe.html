@@ -45,6 +45,7 @@
         height: auto; /* Höhe des Bildes wird automatisch angepasst, um die Proportionen beizubehalten */
         border-radius: 20%; /* Macht das Bild rund */
         margin: 0 auto; /* Zentriert das Bild horizontal */
+        box-shadow:  0 2px 9px rgba(0, 0, 0, 0.9);
         }
 
         .info-box {
@@ -52,7 +53,7 @@
             border: 1px solid #ddd; /* Border of the box */
             border-radius: 5px; /* Rounded corners */
             padding: 15px; /* Padding inside the box */
-            margin-bottom: 20px; /* Space between boxes */
+            margin-top: 20px; /* Space to the next thing on top */
             box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9); /* Shadow around the Box */
         }
 
@@ -109,9 +110,11 @@
     </div>
 
     <img src="/img/Profilbild.jpg" alt="Julian Faller" class="portrait">
-    <h2>Hi, I’m Julian Faller</h2>
-            <p>I’m a Computer Science student, and on my website, I showcase a collection of small projects that I’ve created myself.</p>
-            
+
+            <div class="info-box">
+                <h3>Hi, I’m Julian Faller,</h3>
+                <p>I’m a Computer Science student, and on my website, I showcase a collection of small projects that I’ve created myself.</p>
+            </div>            
             <div class="info-box">
                 <h3>My Background</h3>
                 <p>I began my educational journey at Wutach Elementary School, followed by Bonndorf Secondary School, and then the Technical High School in Donaueschingen. Currently, I am studying Computer Science at Furtwangen University.</p>
