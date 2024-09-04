@@ -31,7 +31,7 @@ body {
 .sidebar .closebtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    right: 15px;
     font-size: 36px;
     margin-left: 50px;
 }
@@ -57,3 +57,139 @@ body {
     transition: margin-left .5s;
     padding: 16px;
 }
+
+
+
+/* Logout Button From Uiverse.io by vinodjangid07 */ 
+.LogoutBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    transition-duration: .3s;
+    background-color: rgb(255, 65, 65);
+    left: 20px;
+    top: 10px;
+    z-index: 3;
+  }
+  
+  /* plus sign */
+  .sign {
+    width: 100%;
+    transition-duration: .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .sign svg {
+    width: 17px;
+  }
+  
+  .sign svg path {
+    fill: white;
+  }
+  /* text */
+  .text {
+    position: absolute;
+    right: 0%;
+    width: 0%;
+    opacity: 0;
+    color: white;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition-duration: .3s;
+  }
+  /* hover effect on button width */
+  .LogoutBtn:hover {
+    width: 120px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .LogoutBtn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 8px;
+  }
+  /* hover effect button's text */
+  .LogoutBtn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .LogoutBtn:active {
+    transform: translate(2px ,2px);
+  }
+
+
+/* Login Button From Uiverse.io by vinodjangid07  + Eigencreation*/ 
+  .LoginBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    transition-duration: .3s;
+    background-color: rgb(0, 128, 0);
+    left: 75px;
+    top: 10px;
+    z-index: 2;
+  }
+
+  /* hover effect on button width */
+  .LoginBtn:hover {
+    width: 120px;
+    border-radius: 40px;
+    transition-duration: .3s;
+  }
+  
+  .LoginBtn:hover .sign {
+    width: 30%;
+    transition-duration: .3s;
+    padding-left: 8px;
+  }
+  /* hover effect button's text */
+  .LoginBtn:hover .text {
+    opacity: 1;
+    width: 70%;
+    transition-duration: .3s;
+    padding-right: 10px;
+  }
+  /* button click effect*/
+  .LoginBtn:active {
+    transform: translate(2px ,2px);
+  }
+
+
+  /* Login Status Button From Uiverse.io by vinodjangid07  + Eigencreation*/
+  .LoginStatusBtn {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 45px;
+    height: 45px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    overflow: hidden;
+    transition-duration: .3s;
+    background-color: rgb(255, 65, 65);
+    left: 75px;
+    top: 10px;
+    z-index: 2;
+  } 
