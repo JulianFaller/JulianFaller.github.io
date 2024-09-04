@@ -12,7 +12,7 @@
             flex-direction: column;
             margin: 20px;
             padding: 0;
-            height: 100vh; /* Höhe auf 100% der Ansichtshöhe setzen */
+            height: 100vh; /* set to 100% hight of the page */
             box-sizing: border-box;
         }
 
@@ -30,12 +30,44 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px; /* Abstand zur Überschrift */
         }
 
         a {
             text-decoration: none; /* Optional: Entfernt die Unterstreichung des Links */
         }
+
+        a:hover {
+            text-decoration: underline; /* Underline the Link to the contact page when hover over it */
+        }
+
+        .portrait {
+        display: block;
+        width: 200px; /* Breite des Bildes, hier auf 200px gesetzt */
+        height: auto; /* Höhe des Bildes wird automatisch angepasst, um die Proportionen beizubehalten */
+        border-radius: 20%; /* Macht das Bild rund */
+        margin: 0 auto; /* Zentriert das Bild horizontal */
+        }
+
+        .info-box {
+            background: #fafafa; /* Background color of the box */
+            border: 1px solid #ddd; /* Border of the box */
+            border-radius: 5px; /* Rounded corners */
+            padding: 15px; /* Padding inside the box */
+            margin-bottom: 20px; /* Space between boxes */
+            box-shadow: 0 2px 9px rgba(0, 0, 0, 0.9); /* Shadow around the Box */
+        }
+
+        .info-box h3 {
+            margin-top: 0; /* Removes top margin for headings inside the box */
+            margin-bottom: 10px; /* Space between heading and paragraph */
+        }
+
+        .info-box p {
+            margin: 0; /* Removes default margin of paragraph */
+        }
+
+        
+    
 
 
     </style>
@@ -68,5 +100,40 @@
     <script src="../js/SidebarScript.js"></script>
     <script src="../js/TimeDateScript.js"></script>
 
+    <img src="/img/Profilbild.jpg" alt="Julian Faller" class="portrait">
+    <h2>Hi, I’m Julian Faller</h2>
+            <p>I’m a Computer Science student, and on my website, I showcase a collection of small projects that I’ve created myself.</p>
+            
+            <div class="info-box">
+                <h3>My Background</h3>
+                <p>I began my educational journey at Wutach Elementary School, followed by Bonndorf Secondary School, and then the Technical High School in Donaueschingen. Currently, I am studying Computer Science at Furtwangen University.</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>My Skills</h3>
+                <p>I have solid knowledge in C++, Java, and network technology, as well as extensive hardware technical expertise.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>How I got into Computer Science</h3>
+                <p>My interest in computer science was sparked by my father, who works as a system administrator. Early exposure to the field helped me develop a passion for technology.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>My Motivation and Goals</h3>
+                <p>I don’t have a specific career goal yet, but I aim for a secure and fulfilling job. I am motivated by seeing progress and results from my work.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Hobbies</h3>
+                <p>In my free time, I enjoy playing soccer, going skiing, and going to the gym.</p>
+            </div>
+
+            <div class="info-box">
+                <h3>Contact</h3>
+                <p>If you have any questions or just want to get in touch, you can <a href="/html/Contact.html">contact me here</a>.</p>
+            </div>
+        </section>
 </body>
+
 </html>
