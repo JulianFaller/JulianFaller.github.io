@@ -5,7 +5,7 @@ function updateDateTime() {
     const now = new Date();
     
     // Datum formatieren
-    const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
+    const optionsDate = { year: 'numeric', month: '2-digit', day: '2-digit' };
     const formattedDate = now.toLocaleDateString('de-DE', optionsDate);
     
     // Uhrzeit formatieren
