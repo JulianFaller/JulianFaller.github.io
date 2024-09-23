@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Währungsumrechner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        #converter {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+        }
+        label, input, select, button {
+            display: block;
+            width: 100%;
+            margin-bottom: 10px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #result {
+            font-weight: bold;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Währungsumrechner</h1>
+
+    <div id="converter">
+        <label for="amount">Betrag:</label>
+        <input type="number" id="amount" placeholder="Betrag eingeben" min="1" required>
+
+        <label for="fromCurrency">Von:</label>
+        <select id="fromCurrency">
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="CHF">Schweizer Franken</option>
+            <!-- Weitere Währungen hinzufügen -->
+        </select>
+
+        <label for="toCurrency">Nach:</label>
+        <select id="toCurrency">
+            <option value="USD">US Dollar</option>
+            <option value="EUR">Euro</option>
+            <option value="CHF">Schweizer Franken</option>
+            <!-- Weitere Währungen hinzufügen -->
+        </select>
+
+        <button onclick="convertCurrency()">Umrechnen</button>
+
+        <p id="result"></p>
+    </div>
+
+    <script>
+        async function convertCurrency() {
+            const amount = document.getElementById('amount').value;
+            const fromCurrency = document.getElementById('fromCurrency').value;
+            const toCurrency = document.getElementById('toCurrency').value;
+            const resultElement = document.getElementById('result');
+
+            // Validierung: gleiche Währung
+            if (fromCurrency === toCurrency) {
+                resultElement.textContent = 'Bitte zwei verschiedene Währungen auswählen.';
+                return;
+            }
+
+            // API-Anfrage an das Backend
+            try {
+                const response = await fetch(`/convert?from=${fromCurrency}&to=${toCurrency}`);
+                const data = await response.json();
+
+                if (data.conversion_rate) {
+                    const convertedAmount = amount * data.conversion_rate;
+                    resultElement.textContent = `${amount} ${fromCurrency} = ${convertedAmount.toFixed(2)} ${toCurrency}`;
+                } else {
+                    resultElement.textContent = 'Fehler bei der Währungsumrechnung.';
+                }
+            } catch (error) {
+                resultElement.textContent = 'Es ist ein Fehler aufgetreten.';
+            }
+        }
+    </script>
+</body>
+</html>
