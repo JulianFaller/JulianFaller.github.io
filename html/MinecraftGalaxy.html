@@ -15,25 +15,46 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hero Section - Das Bild am Anfang */
+        .hero-section {
+            height: 100vh;
             background: url('../img/MinecraftGalaxy.png') center/cover no-repeat fixed;
-            background-color: #667eea;
-            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
             position: relative;
         }
 
-        body::before {
+        .hero-section::before {
             content: '';
-            position: fixed;
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 0;
+            background: rgba(102, 126, 234, 0.4);
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            color: white;
+            z-index: 2;
+            padding: 20px;
+        }
+
+        /* Content Section - Der bisherige Inhalt */
+        .content-section {
+            padding: 60px 20px;
+            background: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .container {
@@ -45,8 +66,6 @@
             max-width: 800px;
             width: 100%;
             animation: fadeIn 0.5s ease-in;
-            position: relative;
-            z-index: 1;
         }
 
         @keyframes fadeIn {
@@ -60,7 +79,18 @@
             }
         }
 
-        h1 {
+        /* Hero h1 - weiß mit Schatten */
+        .hero-content h1 {
+            color: white;
+            font-size: 5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            background: none;
+            -webkit-text-fill-color: white;
+        }
+
+        /* Content h1 - Gradient */
+        .container h1 {
             color: #333;
             font-size: 2.5em;
             margin-bottom: 10px;
@@ -197,11 +227,15 @@
         }
 
         @media (max-width: 600px) {
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
             .container {
                 padding: 25px;
             }
 
-            h1 {
+            .container h1 {
                 font-size: 2em;
             }
 
@@ -239,8 +273,18 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
-    <div class="container">
-        <h1>🎮 Minecraft Galaxy</h1>
+
+    <!-- Hero Section - Das Bild -->
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1>Minecraft Galaxy</h1>
+        </div>
+    </div>
+
+    <!-- Content Section - Der bisherige Inhalt -->
+    <div class="content-section">
+        <div class="container">
+            <h1>🎮 Minecraft Galaxy</h1>
         <p class="subtitle">Minecraft Galaxy Modpack - Aktuell</p>
         
         <div class="modpack-info">
@@ -278,6 +322,7 @@
 
         <div class="server-info">
             <strong>ℹ️ Server Info:</strong> Verbinde dich mit uns auf unserem Minecraft Server und erlebe das beste Modpack!
+        </div>
         </div>
     </div>
 
