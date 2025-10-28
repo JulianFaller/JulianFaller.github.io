@@ -50,7 +50,7 @@
         /* Content Section - Der bisherige Inhalt */
         .content-section {
             padding: 60px 20px;
-            background: transparent;
+            background: #ff000000;
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -64,7 +64,8 @@
             padding: 40px;
             max-width: 800px;
             width: 100%;
-            animation: fadeIn 0.5s ease-in;
+            /* Von unten nach oben in die Mitte mit Fade-In */
+            animation: slideUpFade 3s ease-out forwards;
         }
 
         @keyframes fadeIn {
@@ -78,12 +79,23 @@
             }
         }
 
+        /* Startet unterhalb der finalen Position und fährt in die Mitte */
+        @keyframes slideUpFade {
+            from {
+                opacity: 0;
+                transform: translateY(50vh);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         /* Hero h1 - weiß mit Schatten */
         .hero-content h1 {
             color: white;
             font-size: 5rem;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
             background: none;
             -webkit-text-fill-color: white;
         }
@@ -124,12 +136,21 @@
             padding: 25px;
             margin-bottom: 30px;
             box-shadow: none;
+            position: sticky;
+            top: 24px; /* Abstand zum oberen Rand, wenn angedockt */
+            z-index: 3;
+            transform-origin: top center;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
         .modpack-info h2 {
             color: #333;
             margin-bottom: 15px;
             font-size: 1.5em;
+        }
+
+        .modpack-info.stuck {
+            transform: scale(0.96);
         }
 
         .info-grid {
@@ -277,54 +298,72 @@
     <!-- Hero Section - Das Bild -->
     <div class="hero-section">
         <div class="hero-content">
-        </div>
-    </div>
+            <div class="container">
+                <h1>🎮 Minecraft Galaxy</h1>
+                <p class="subtitle">Minecraft Galaxy Modpack für NoRisk Launcher</p>
+                
+                <div class="modpack-info">
+                    <h2>Minecraft Galaxy 1.20.1</h2>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <div class="info-label">Version</div>
+                            <div class="info-value">v1.3.0</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Mods</div>
+                            <div class="info-value">~60</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Letztes Update</div>
+                            <div class="info-value">27.10.2025</div>
+                        </div>
+                    </div>
+                </div>
 
-    <!-- Content Section - Der bisherige Inhalt -->
-    <div class="content-section">
-        <div class="container">
-            <h1>🎮 Minecraft Galaxy</h1>
-        <p class="subtitle">Minecraft Galaxy Modpack für NoRisk Launcher</p>
-        
-        <div class="modpack-info">
-            <h2>Minecraft Galaxy 1.20.1</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-label">Version</div>
-                    <div class="info-value">v1.3.0</div>
+                <div class="download-section">
+                    <a href="https://mega.nz/file/Sloj0JRT#8s82dq_D0Q7cD5-cwJgHIFgYhlRgw9bf32SkRQFHM6A" class="download-btn" target="_blank">
+                        📦 Modpack Herunterladen
+                    </a>
                 </div>
-                <div class="info-item">
-                    <div class="info-label">Mods</div>
-                    <div class="info-value">~60</div>
+
+                <div class="changelog">
+                    <h3>📝 Changelog</h3>
+                    <ul>
+                        <li>Backpack Mod!</li>
+                        <li>Kleine Bugs behoben</li>
+                    </ul>
                 </div>
-                <div class="info-item">
-                    <div class="info-label">Letztes Update</div>
-                    <div class="info-value">27.10.2025</div>
+
+                <div class="server-info">
+                    <strong>ℹ️ Server Info:</strong> Skibidi, komm rann!
                 </div>
             </div>
-        </div>
-
-        <div class="download-section">
-            <a href="https://mega.nz/file/Sloj0JRT#8s82dq_D0Q7cD5-cwJgHIFgYhlRgw9bf32SkRQFHM6A" class="download-btn" target="_blank">
-                📦 Modpack Herunterladen
-            </a>
-        </div>
-
-        <div class="changelog">
-            <h3>📝 Changelog</h3>
-            <ul>
-                <li>Backpack Mod!</li>
-                <li>Kleine Bugs behoben</li>
-            </ul>
-        </div>
-
-        <div class="server-info">
-            <strong>ℹ️ Server Info:</strong> Skibidi, komm rann!
-        </div>
         </div>
     </div>
 
     <script src="../js/SidebarScript.js"></script>
+    <script>
+    (function() {
+        var modpackInfo = document.querySelector('.modpack-info');
+        if (!modpackInfo) return;
+        var stickTop = 24; // muss mit CSS top übereinstimmen
+
+        function updateStuckState() {
+            var rect = modpackInfo.getBoundingClientRect();
+            var isStuck = rect.top <= stickTop + 1; // kleine Toleranz
+            if (isStuck) {
+                modpackInfo.classList.add('stuck');
+            } else {
+                modpackInfo.classList.remove('stuck');
+            }
+        }
+
+        document.addEventListener('scroll', updateStuckState, { passive: true });
+        window.addEventListener('resize', updateStuckState);
+        // Initialer Zustand nach Rendern
+        updateStuckState();
+    })();
+    </script>
 </body>
 </html>
 
