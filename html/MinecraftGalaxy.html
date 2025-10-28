@@ -17,36 +17,7 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             margin: 0;
             padding: 0;
-        }
-
-        /* Hero Section - Das Bild am Anfang */
-        .hero-section {
-            height: 100vh;
-            background: url('../img/MinecraftGalaxy.png') center/cover no-repeat fixed;
-            display: flex;
-            align-items: flex-start;
-            padding-top: 40px;
-            justify-content: center;
-            position: relative;
-            margin-top: -16px;
-        }
-
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0);
-            z-index: 1;
-        }
-
-        .hero-content {
-            text-align: center;
-            color: white;
-            z-index: 2;
-            padding: 20px;
+            background: url('../img/MinecraftGalaxy.png') center/cover no-repeat;
         }
 
         /* Content Section - Der bisherige Inhalt */
@@ -64,8 +35,9 @@
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
             padding: 20px;
-            max-width: 800px;
+            max-width: 500px;
             width: 100%;
+            margin: 20px auto 40px;
             animation: slideUpFade 3s ease-out forwards;
         }
 
@@ -92,15 +64,6 @@
             }
         }
 
-        /* Hero h1 - weiß mit Schatten */
-        .hero-content h1 {
-            color: white;
-            font-size: 5rem;
-            margin-bottom: 20px;
-            background: none;
-            -webkit-text-fill-color: white;
-        }
-
         /* Content h1 - Gradient */
         .container h1 {
             color: #333;
@@ -116,7 +79,7 @@
         .subtitle {
             text-align: center;
             color: #666;
-            margin-bottom: 40px;
+            margin-bottom: 20px;
             font-size: 1.1em;
         }
 
@@ -132,11 +95,11 @@
         }
 
         .modpack-info {
-            background: transparent;
+            background-color: #5f494934;
             border-radius: 15px;
-            padding: 25px;
-            margin-bottom: 30px;
+            padding: 10px;
             box-shadow: none;
+            text-align: center;
         }
 
         .modpack-info h2 {
@@ -149,7 +112,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(100%, 1fr));
             gap: 20px;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
         .info-item {
@@ -170,7 +133,8 @@
 
         .download-section {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px;
+            margin-top: 20px;
         }
 
         .download-btn {
@@ -240,10 +204,6 @@
         }
 
         @media (max-width: 600px) {
-            .hero-content h1 {
-                font-size: 3rem;
-            }
-
             .container {
                 padding: 25px;
             }
@@ -286,50 +246,44 @@
     <div id="main">
         <button class="openbtn" onclick="openNav()">☰ Menu</button>
     </div>
-
-    <!-- Hero Section - Das Bild -->
-    <div class="hero-section">
-        <div class="hero-content">
-            <div class="container">
-                <h1>🎮 Minecraft Galaxy</h1>
-                <p class="subtitle">Minecraft Galaxy Modpack für NoRisk Launcher</p>
-                
-                <div class="modpack-info">
-                    <h2>Minecraft Galaxy 1.20.1</h2>
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <div class="info-label">Version</div>
-                            <div class="info-value">v1.3.0</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Mods</div>
-                            <div class="info-value">~60</div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-label">Letztes Update</div>
-                            <div class="info-value">27.10.2025</div>
-                        </div>
-                    </div>
+    <div class="container">
+        <h1>🎮 Minecraft Galaxy</h1>
+        <p class="subtitle">Minecraft Galaxy Modpack für NoRisk Launcher</p>
+        
+        <div class="modpack-info">
+            <h2>Minecraft Galaxy 1.20.1</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-label">Version</div>
+                    <div class="info-value">v1.3.0</div>
                 </div>
-
-                <div class="download-section">
-                    <a href="https://mega.nz/file/Sloj0JRT#8s82dq_D0Q7cD5-cwJgHIFgYhlRgw9bf32SkRQFHM6A" class="download-btn" target="_blank">
-                        📦 Modpack Herunterladen
-                    </a>
+                <div class="info-item">
+                    <div class="info-label">Mods</div>
+                    <div class="info-value">~60</div>
                 </div>
-
-                <div class="changelog">
-                    <h3>📝 Changelog</h3>
-                    <ul>
-                        <li>Backpack Mod!</li>
-                        <li>Kleine Bugs behoben</li>
-                    </ul>
-                </div>
-
-                <div class="server-info">
-                    <strong>ℹ️ Server Info:</strong> Skibidi, komm rann!
+                <div class="info-item">
+                    <div class="info-label">Letztes Update</div>
+                    <div class="info-value">27.10.2025</div>
                 </div>
             </div>
+        </div>
+
+        <div class="download-section">
+            <a href="https://mega.nz/file/Sloj0JRT#8s82dq_D0Q7cD5-cwJgHIFgYhlRgw9bf32SkRQFHM6A" class="download-btn" target="_blank">
+                📦 Modpack Herunterladen
+            </a>
+        </div>
+
+        <div class="changelog">
+            <h3>📝 Changelog</h3>
+            <ul>
+                <li>Backpack Mod!</li>
+                <li>Kleine Bugs behoben</li>
+            </ul>
+        </div>
+
+        <div class="server-info">
+            <strong>ℹ️ Server Info:</strong> Skibidi, komm rann!
         </div>
     </div>
 
