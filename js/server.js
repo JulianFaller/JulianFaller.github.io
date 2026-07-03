@@ -1,10 +1,12 @@
 // server.js
 require('dotenv').config();  // Lädt die Umgebungsvariablen aus .env oder GitHub Secrets
 const express = require('express');
+const helmet = require('helmet');
 const fetch = require('node-fetch');
 const path = require('path');
 
 const app = express();
+app.use(helmet());
 
 // Deinen API-Key aus den Umgebungsvariablen abrufen
 const apiKey = process.env.API_KEY_OPENEXCHANGERATES;
