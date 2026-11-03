@@ -4,343 +4,292 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/SidebarStyle.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200&family=Roboto+Serif&display=swap" rel="stylesheet">
-    <title>Minecraft Greek Gods - Modpack Download</title>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <title>OLYMP — Minecraft Greek Gods</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        :root {
+            --night: #071416;
+            --ivory: #f2eee2;
+            --muted: #aeb9b3;
+            --gold: #c4a263;
+            --gold-bright: #d5b979;
         }
 
-        :root {
-            --marble: #f4f0e6;
-            --marble-shadow: #d8d0bf;
-            --ink: #272b3a;
-            --muted: #676b78;
-            --olympian-blue: #214b70;
-            --olympian-blue-dark: #122b46;
-            --gold: #c99a3d;
-            --gold-light: #f1d38a;
-            --terracotta: #9d4f38;
-        }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            font-family: 'Roboto Serif', Georgia, serif;
             margin: 0;
-            padding: 0;
             min-height: 100vh;
-            color: var(--ink);
-            background:
-                radial-gradient(circle at 50% -10%, rgba(255,255,255,.96), transparent 42%),
-                linear-gradient(135deg, rgba(255,255,255,.5), transparent 34%),
-                repeating-linear-gradient(105deg, rgba(91,83,67,.07) 0 2px, transparent 2px 44px),
-                linear-gradient(145deg, #d9d1c0, var(--marble) 48%, #c8c0af);
-            position: relative;
             overflow-x: hidden;
+            color: var(--ivory);
+            background: var(--night);
+            font-family: 'DM Sans', Arial, sans-serif;
         }
 
-        body::before,
-        body::after {
-            content: '☙';
-            position: fixed;
-            z-index: -1;
-            color: rgba(157, 79, 56, .16);
-            font-family: Georgia, serif;
-            font-size: clamp(12rem, 34vw, 32rem);
-            line-height: 1;
-            pointer-events: none;
-        }
-
-        body::before { left: -7rem; top: 8%; transform: rotate(-32deg); }
-        body::after { right: -7rem; bottom: 2%; transform: scaleX(-1) rotate(-32deg); }
-
-        .content-section {
-            padding: 60px 20px;
+        .page {
             min-height: 100vh;
+            position: relative;
+            isolation: isolate;
+            background-image:
+                linear-gradient(90deg, rgba(4,12,13,.93) 0%, rgba(4,13,15,.72) 31%, rgba(4,13,15,.15) 67%, rgba(4,13,15,.35) 100%),
+                linear-gradient(180deg, rgba(5,16,18,.28) 0%, rgba(5,16,18,.08) 50%, rgba(5,16,18,.88) 100%),
+                url('../img/olymp-hero.png');
+            background-position: center;
+            background-size: cover;
+        }
+
+        .page::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            pointer-events: none;
+            background: radial-gradient(circle at 70% 40%, transparent 0 32%, rgba(3,11,12,.28) 82%);
+        }
+
+        .shell {
+            width: min(1376px, calc(100% - 96px));
+            min-height: 100vh;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            min-height: 118px;
+            border-bottom: 1px solid rgba(196,162,99,.24);
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: center;
+            gap: 17px;
+            color: var(--ivory);
+            text-decoration: none;
+            letter-spacing: .24em;
+            font: 500 25px/1 'Playfair Display', Georgia, serif;
+        }
+
+        .temple-mark { width: 32px; height: 38px; color: var(--gold-bright); }
+        .temple-mark path, .temple-mark line { stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+        .eyebrow {
+            margin: 0;
+            color: rgba(242,238,226,.62);
+            font-size: 11px;
+            letter-spacing: .34em;
+            text-transform: uppercase;
+        }
+
+        .download-top {
+            justify-self: end;
+            color: var(--ivory);
+            text-decoration: none;
+            font-size: 12px;
+            transition: color .2s ease;
+        }
+
+        .download-top span { color: var(--gold-bright); font-size: 22px; margin-left: 10px; vertical-align: -2px; }
+        .download-top:hover { color: var(--gold-bright); }
+
+        .hero {
+            flex: 1;
             display: flex;
             align-items: center;
-            justify-content: center;
+            min-height: 700px;
+            padding: 72px 0 88px;
         }
 
-        .container {
-            position: relative;
-            background: rgba(250, 248, 241, .94);
-            border: 1px solid rgba(201, 154, 61, .7);
-            border-radius: 4px;
-            box-shadow: 0 22px 55px rgba(39, 43, 58, .28), inset 0 0 0 7px rgba(255,255,255,.35);
-            padding: 42px 34px 34px;
-            max-width: 620px;
-            width: 100%;
-            margin: 20px auto 40px;
-            animation: slideUpFade .8s ease-out forwards;
-        }
+        .hero-content { max-width: 580px; }
 
-        .container::before,
-        .container::after {
-            content: '✦  ✦  ✦';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%);
-            color: var(--gold);
-            letter-spacing: .65rem;
-            font-size: .85rem;
-        }
-
-        .container::before { top: 12px; }
-        .container::after { bottom: 10px; }
-
-        .container h1 {
-            color: var(--olympian-blue-dark);
-            font-family: Georgia, 'Times New Roman', serif;
-            font-size: clamp(2rem, 7vw, 3.25rem);
-            line-height: 1.05;
-            letter-spacing: .03em;
-            margin-bottom: 12px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .subtitle {
-            text-align: center;
-            color: var(--terracotta);
+        .overline {
+            display: flex;
+            align-items: center;
+            gap: 15px;
             margin-bottom: 20px;
-            font-size: 1.05em;
-            letter-spacing: .14em;
+            color: var(--gold-bright);
+            font-size: 12px;
+            letter-spacing: .3em;
             text-transform: uppercase;
         }
 
-        .version-badge {
-            display: table;
-            background: var(--olympian-blue);
-            color: var(--gold-light);
-            padding: 8px 16px;
-            border-radius: 2px;
-            font-size: .9em;
-            font-weight: 600;
-            margin: 0 auto 30px;
+        .overline::before { content: ''; width: 34px; height: 1px; background: var(--gold-bright); }
+
+        h1 {
+            margin: 0;
+            color: var(--ivory);
+            font: 500 clamp(5.5rem, 13vw, 10rem)/.85 'Playfair Display', Georgia, serif;
+            letter-spacing: -.035em;
         }
 
-        .modpack-info {
-            background: linear-gradient(135deg, rgba(33,75,112,.1), rgba(201,154,61,.12));
-            border: 1px solid rgba(33,75,112,.24);
-            border-top: 4px solid var(--gold);
-            border-radius: 2px;
-            padding: 18px 16px 16px;
-            text-align: center;
+        .tagline {
+            margin: 40px 0 30px;
+            color: var(--ivory);
+            font: italic 500 clamp(1.55rem, 2.7vw, 2.15rem)/1.25 'Playfair Display', Georgia, serif;
         }
 
-        .modpack-info h2 {
-            color: var(--olympian-blue-dark);
-            margin-bottom: 18px;
-            font-size: 1.45em;
-        }
-
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
-            margin-bottom: 4px;
-        }
-
-        .info-item { text-align: center; }
-
-        .info-label {
+        .intro {
+            max-width: 440px;
+            margin: 0 0 36px;
             color: var(--muted);
-            font-size: .75em;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-            letter-spacing: .08em;
+            font-size: 15px;
+            line-height: 1.85;
         }
 
-        .info-value {
-            color: var(--olympian-blue-dark);
-            font-size: 1.15em;
-            font-weight: 600;
-        }
-
-        .download-section {
-            text-align: center;
-            margin: 28px 0 22px;
-        }
+        .download-wrap { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; }
 
         .download-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--terracotta), #713629);
-            color: #fff8e7;
-            padding: 16px 30px;
-            border: 1px solid var(--gold-light);
+            display: inline-flex;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 348px;
+            padding: 19px 23px 19px 26px;
+            border: 1px solid rgba(242,222,169,.22);
             border-radius: 2px;
+            color: #081417;
+            background: var(--gold-bright);
+            box-shadow: 0 12px 26px rgba(0,0,0,.22);
+            font-size: 14px;
+            font-weight: 700;
             text-decoration: none;
-            font-size: 1.05em;
-            font-weight: 600;
-            letter-spacing: .04em;
-            transition: transform .25s ease, box-shadow .25s ease;
-            box-shadow: 0 6px 0 #5d2c22, 0 10px 22px rgba(113,54,41,.25);
+            transition: transform .25s ease, background .25s ease;
         }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 0 #5d2c22, 0 14px 28px rgba(113,54,41,.3);
+        .download-btn:hover { transform: translateY(-3px); background: #e4c989; }
+        .download-icon { width: 19px; height: 19px; }
+        .download-icon path { fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.7; }
+
+        .link-note { color: rgba(242,238,226,.62); font-size: 12px; }
+        .link-note::before { content: '◷'; margin-right: 9px; color: var(--gold-bright); font-size: 17px; vertical-align: -2px; }
+
+        .hero-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-top: auto;
+            color: rgba(242,238,226,.65);
+            font-size: 10px;
+            letter-spacing: .25em;
+            text-transform: uppercase;
         }
 
-        .download-btn:active {
-            transform: translateY(2px);
-            box-shadow: 0 3px 0 #5d2c22;
+        .hero-meta .dot { margin: 0 16px; color: var(--gold-bright); }
+        .quote { font: italic 500 18px 'Playfair Display', Georgia, serif; letter-spacing: 0; text-transform: none; }
+        .quote::before { content: ''; display: inline-block; width: 40px; height: 1px; margin: 0 18px 6px 0; background: var(--gold-bright); }
+
+        footer {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            min-height: 86px;
+            border-top: 1px solid rgba(196,162,99,.25);
+            color: rgba(242,238,226,.65);
+            font-size: 11px;
         }
 
-        .changelog {
-            margin-top: 28px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(201,154,61,.7);
-        }
+        footer strong { color: var(--gold-bright); font: 500 14px 'Playfair Display', Georgia, serif; letter-spacing: .25em; }
+        footer p { margin: 0; text-align: center; }
+        footer span { justify-self: end; font-size: 9px; letter-spacing: .22em; text-transform: uppercase; }
 
-        .changelog h3 {
-            color: var(--olympian-blue-dark);
-            margin-bottom: 15px;
-            font-size: 1.15em;
-        }
-
-        .changelog ul { list-style: none; padding-left: 0; }
-
-        .changelog li {
-            color: var(--muted);
-            margin-bottom: 8px;
-            padding-left: 25px;
-            position: relative;
-        }
-
-        .changelog li::before {
-            content: '◈';
-            position: absolute;
-            left: 0;
-            color: var(--gold);
-            font-weight: bold;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Startet unterhalb der finalen Position und fährt in die Mitte */
-        @keyframes slideUpFade {
-            from {
-                opacity: 0;
-                transform: translateY(100vh);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .server-info {
-            background: rgba(241,211,138,.25);
-            border-left: 4px solid var(--gold);
-            padding: 15px;
+        .olymp-menu {
+            top: 25px;
+            left: 25px;
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            color: var(--gold-bright);
+            background: rgba(7,20,22,.72);
+            border: 1px solid rgba(196,162,99,.35);
             border-radius: 2px;
-            margin-top: 20px;
-            color: var(--muted);
+            box-shadow: none;
+            font-size: 17px;
         }
 
-        .server-info strong {
-            color: var(--olympian-blue-dark);
+        .olymp-menu:active { box-shadow: none; transform: translateY(1px); }
+
+        @media (max-width: 800px) {
+            .shell { width: min(100% - 40px, 620px); }
+            header { grid-template-columns: 1fr auto; min-height: 88px; }
+            header .eyebrow { display: none; }
+            .hero { min-height: calc(100vh - 174px); padding: 62px 0 54px; align-items: flex-start; }
+            .page { background-position: 66% center; }
+            .page::after { content: ''; position: absolute; inset: 0; z-index: -1; background: rgba(4,13,15,.33); pointer-events: none; }
+            h1 { font-size: clamp(5rem, 23vw, 8rem); }
+            .hero-meta { margin-top: 78px; display: block; }
+            .quote { margin-top: 26px; }
+            footer { grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px 0; }
+            footer p { grid-column: 1 / -1; grid-row: 2; text-align: left; }
+            footer span { grid-column: 2; grid-row: 1; }
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 38px 20px 30px;
-            }
-
-            .info-grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
-            }
-
-            .download-btn {
-                padding: 15px 22px;
-                font-size: 1em;
-            }
+        @media (max-width: 480px) {
+            .shell { width: calc(100% - 32px); }
+            .brand { font-size: 21px; gap: 10px; }
+            .temple-mark { width: 27px; }
+            .download-btn { min-width: 100%; }
+            .intro { font-size: 14px; }
+            .hero-meta { letter-spacing: .14em; }
         }
     </style>
 </head>
 <body>
-    <!--Sidebar Button-->
+    <button class="openbtn olymp-menu" onclick="openNav()" aria-label="Menü öffnen">☰</button>
+    <main class="page">
+        <div class="shell">
+            <header>
+                <a class="brand" href="../index.html" aria-label="Zur Startseite">
+                    <svg class="temple-mark" viewBox="0 0 32 38" aria-hidden="true">
+                        <path d="M4 11.5 16 5l12 6.5M7 13h18M8 16v13M14 16v13M20 16v13M26 16v13M4 31h24" />
+                    </svg>
+                    OLYMP
+                </a>
+                <p class="eyebrow">Mythologie · in Blöcken.</p>
+                <a class="download-top" href="#download">Zum Download <span>↓</span></a>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="overline">Ein Minecraft-Modpack</div>
+                    <h1>OLYMP</h1>
+                    <p class="tagline">Die Götter sind nicht vergessen.</p>
+                    <p class="intro">Antike Mythen. Eine Welt aus Blöcken.<br>Tritt durch den Nebel und schreibe deine eigene Legende im Schatten des Olymps.</p>
+                    <div class="download-wrap" id="download">
+                        <a class="download-btn" href="https://1drv.ms/u/c/3b0758ce1b0b95b8/IQCQf2PKbXd-QYJ3cfywoqDyAUJZx_XhxMouR-A9PqBSQ64?e=nDiWhb" target="_blank" rel="noopener noreferrer">
+                            Modpack herunterladen
+                            <svg class="download-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 19h14" /></svg>
+                        </a>
+                        <span class="link-note">Download-Link bereitgestellt.</span>
+                    </div>
+                </div>
+            </section>
+
+            <div class="hero-meta">
+                <div>Antike Mythen <span class="dot">◆</span> Neue Legenden</div>
+                <div class="quote">Nicht jede Legende ist nur ein Mythos.</div>
+            </div>
+
+            <footer>
+                <strong>OLYMP</strong>
+                <p>Ein inoffizielles Minecraft-Modpack. Nicht mit Mojang oder Microsoft verbunden.</p>
+                <span>Deine Legende beginnt hier.</span>
+            </footer>
+        </div>
+    </main>
+
     <div id="sidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="right: 16px; top: 1.06588px;">×</a>
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
         <a href="../index.html">Home</a>
         <a href="../html/AboutMe.html">About</a>
         <a href="../html/Contact.html">Contact</a>
         <a href="/html/TikTakToe.html">Tic Tac Toe</a>
         <a href="../html/tutorial.html">Fighting Game</a>
         <a href="/html/MinecraftGalaxy.html">Minecraft Greek Gods</a>
-
-        <!-- Logout Button -->
-        <button class="LogoutBtn" onclick="window.location.href='/html/Logout.html'">
-            <div class="sign"><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
-            <div class="text">Logout</div>
-        </button>
-
-        <!-- Login Button -->
-        <button class="LoginBtn" onclick="window.location.href='/html/Login.html'">
-            <div class="sign"><svg viewBox="0 0 512 512"><path d="M217.9 105.9L340.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L217.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1L32 320c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM352 416l64 0c17.7 0 32-14.3 32-32l0-256c0-17.7-14.3-32-32-32l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32l64 0c53 0 96 43 96 96l0 256c0 53-43 96-96 96l-64 0c-17.7 0-32-14.3-32-32s14.3-32 32-32z"></path></svg></div>
-            <div class="text">Login</div>
-          </button>
-        
-    </div>
-    <div id="main">
-        <button class="openbtn" onclick="openNav()">☰ Menu</button>
-    </div>
-    <div class="container">
-        <h1>⚡ Minecraft Greek Gods</h1>
-        <p class="subtitle">A Modpack forged on Olympus</p>
-        
-        <div class="modpack-info">
-            <h2>Minecraft Greek Gods · 1.20.1</h2>
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-label">Version</div>
-                    <div class="info-value">v1.4.0</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Mods</div>
-                    <div class="info-value">~60</div>
-                </div>
-                <div class="info-item">
-                    <div class="info-label">Letztes Update</div>
-                    <div class="info-value">14.11.2025</div>
-                </div>
-            </div>
-        </div>
-
-        <div class="download-section">
-            <a href="https://1drv.ms/u/c/3b0758ce1b0b95b8/IQCQf2PKbXd-QYJ3cfywoqDyAUJZx_XhxMouR-A9PqBSQ64?e=nDiWhb" class="download-btn" target="_blank" rel="noopener noreferrer">
-                📦 Mod-Ordner Herunterladen
-            </a>
-        </div>
-
-        <div class="changelog">
-            <h3>📜 Changelog</h3>
-            <ul>
-                <li>Added Mace Mod</li>
-                <li>Added Happy Ghast Mod</li>
-                <li>Added Copper-Golem Mod</li>
-            </ul>
-        </div>
-
-        <div class="server-info">
-            <strong>🏛️ Server Info:</strong> Skibidi, komm rann!
-        </div>
     </div>
 
     <script src="../js/SidebarScript.js"></script>
 </body>
 </html>
-
